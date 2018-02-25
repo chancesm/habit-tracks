@@ -1,10 +1,22 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <v-app id="inspire">
+      <v-toolbar>
+	<v-toolbar-items>
+	  <v-btn flat to="/">Dashboard</v-btn>
+	</v-toolbar-items>
+	<v-spacer></v-spacer>
+	<v-avatar>
+	  <img src="https://vuetifyjs.com/static/apple-touch-icon-180x180.png" alt="logo">
+	</v-avatar>
+	<v-toolbar-title>Habit Tracks</v-toolbar-title>
+	<v-spacer></v-spacer>
+	<v-toolbar-items>
+	  <v-btn flat to="/about">Log In</v-btn>
+	</v-toolbar-items>
+      </v-toolbar>
+      <router-view />
+    </v-app>
   </div>
 </template>
 
