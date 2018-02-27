@@ -1,5 +1,5 @@
 <template>
-  <div class='dashboard'>
+  <div class="dashboard">
     <h1>DASHBOARD</h1>
     <HabitDescription></HabitDescription>
     <HabitCalendar></HabitCalendar>
@@ -13,6 +13,7 @@ import HabitCalendar from '@/components/HabitCalendar.vue'
 import HabitList from '@/components/HabitList.vue'
 
 export default {
+  name:'dashboard',
   components: {
     HabitDescription,
     HabitCalendar,
