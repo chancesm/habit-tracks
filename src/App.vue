@@ -1,17 +1,14 @@
 <template>
   <div id="app">
-    <v-app dark id="inspire">
+    <v-app :dark="dark" id="inspire">
       <v-toolbar>
         <v-btn id="navTitle" flat to="/">
-	  <v-avatar>
-	    <img src="https://vuetifyjs.com/static/apple-touch-icon-180x180.png" alt="logo">
-	  </v-avatar>
-	  <v-toolbar-title >Habit Tracks</v-toolbar-title>
-	</v-btn>
-	<v-spacer></v-spacer>
-	<v-toolbar-items>
-	  <v-btn flat to="/about">Log In</v-btn>
-	</v-toolbar-items>
+          <v-toolbar-title :style="outline" class="ml-0">Habit Tracks</v-toolbar-title>
+	      </v-btn>
+	      <v-spacer></v-spacer>
+        <v-btn id="navTitle" flat to="/about">
+          <v-toolbar-title  class="ml-0">Log In</v-toolbar-title>
+	      </v-btn>
       </v-toolbar>
       <v-progress-linear class="mt-0 z-14" :indeterminate="loading"></v-progress-linear>
       <router-view />
@@ -20,15 +17,32 @@
 </template>
 <script>
 module.exports = {
+  data() {
+    return {
+      dark : true
+      
+    }
+  },
   computed: {
     loading() {
       return this.$store.state.loading;
-    }
+    },
+    outlineColor(){
+      if(this.dark) return 'white';
+      else return 'black';
+    },
+    outline(){
+      return {
+        padding: '3px',
+        border : `2px solid ${this.outlineColor}`
+      }
+    } 
   }
 
 }
 </script>
 <style>
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
