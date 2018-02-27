@@ -6,8 +6,8 @@
           <v-toolbar-title :style="outline" class="ml-0">Habit Tracks</v-toolbar-title>
 	      </v-btn>
 	      <v-spacer></v-spacer>
-        <v-btn id="navTitle" flat to="/about">
-          <v-toolbar-title  class="ml-0">Log In</v-toolbar-title>
+        <v-btn id="navTitle" flat to="/dashboard">
+          <v-toolbar-title  class="ml-0">My Habits</v-toolbar-title>
 	      </v-btn>
       </v-toolbar>
       <v-progress-linear class="mt-0 z-14" :indeterminate="loading"></v-progress-linear>

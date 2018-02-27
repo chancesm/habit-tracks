@@ -1,5 +1,14 @@
 <template>
   <div class="home">
-    <h1>Home Page</h1>  
+    <Welcome></Welcome>
   </div>
 </template>
+<script>
+import Welcome from '@/components/Welcome.vue'
+export default {
+  components :{
+    Welcome
+  }
+}
+</script>
+
