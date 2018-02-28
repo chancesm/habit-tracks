@@ -1,9 +1,20 @@
 <template>
   <div class="dashboard">
-    <h1>DASHBOARD</h1>
-    <HabitDescription></HabitDescription>
-    <HabitCalendar></HabitCalendar>
-    <HabitList></HabitList>
+    
+      <v-container fluid grid-list-md>
+        <v-layout row wrap>
+          <v-flex class="xs12">
+            <HabitDescription />
+          </v-flex>
+          <v-flex class="xs6">
+            <HabitCalendar />
+          </v-flex>
+          <v-flex class="xs6">
+            <HabitList />
+          </v-flex>
+        </v-layout>
+      </v-container>
+    
   </div>
 </template>
 

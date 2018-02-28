@@ -1,6 +1,8 @@
 <template>
     <div class= "habit-list">
-        <h2>Habit List</h2>
+        <v-card>
+            <v-card-text>Habit List</v-card-text>
+        </v-card>
     </div>  
 </template>
 

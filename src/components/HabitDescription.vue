@@ -1,12 +1,14 @@
 <template>
     <div class= "habit-description">
-        <h2>Habit Description</h2>
+        <v-card>
+            <v-card-text>Habit Description</v-card-text>
+        </v-card>
     </div>  
 </template>
 
 <script>
 export default {
-name: 'HabitDescription'
+    name: 'HabitDescription'
 }
 </script>
 
