@@ -1,14 +1,25 @@
 <template>
     <div class= "habit-calendar">
         <v-card>
-            <v-card-text>Habit Calendar</v-card-text>
+            <v-date-picker
+            full-width
+            :color="habit.color"></v-date-picker>
         </v-card>
     </div>  
 </template>
 
 <script>
 export default {
-name: 'HabitCalendar'
+name: 'HabitCalendar',
+props: {
+    habit: {
+        type: Object,
+        default: {
+            color: "blue",
+            dates:{}
+        }
+    }
+}
 }
 </script>
 
