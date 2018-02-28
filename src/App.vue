@@ -19,7 +19,7 @@
 module.exports = {
   data() {
     return {
-      dark : true
+      dark : false
       
     }
   },
