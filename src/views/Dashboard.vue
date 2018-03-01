@@ -6,10 +6,10 @@
           <v-flex class="xs12">
             <HabitDescription :habit="habit"/>
           </v-flex>
-          <v-flex class="sm6 xs12">
+          <v-flex class="sm7 xs12">
             <HabitCalendar :habit="habit"/>
           </v-flex>
-          <v-flex class="sm6 xs12">
+          <v-flex class="sm5 xs12">
             <HabitList :habits="habits" :selected="selected_habit"/>
           </v-flex>
         </v-layout>
@@ -44,7 +44,12 @@ export default {
           name: "Read Scriptures Daily",
           description: "I want to read my scriptures every day. My goal is to do this in the morning, but anytime works as long as it gets done.",
           color: "blue",
-          dates: {}
+          dates: {
+            "2018-02-15": 'green',
+            "2018-02-16": "red",
+            "2018-02-17": "green",
+            "2018-02-18": "green"
+          }
         },
         {
           name: "Say Morning Prayer",

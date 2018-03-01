@@ -3,7 +3,10 @@
         <v-card>
             <v-date-picker
             full-width
-            :color="habit.color"></v-date-picker>
+            :color="habit.color"
+            :events="setEvent"
+            :event-color="setEventColor"
+            ></v-date-picker>
         </v-card>
     </div>  
 </template>
@@ -19,7 +22,24 @@ props: {
             dates:{}
         }
     }
-}
+},
+methods: {
+    setEvent(date) {
+        //console.log(date);
+        if (this.habit.dates[date])
+        {
+            return true;
+        }
+        return false;
+    },
+    setEventColor(date) {
+        if (this.habit.dates[date])
+        {
+            return this.habit.dates[date];
+        }
+        else return null;
+    }
+  }
 }
 </script>
 

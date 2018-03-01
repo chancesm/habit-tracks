@@ -7,12 +7,12 @@
                         <v-icon v-if="index == selected" :color="habit.color">check_circle</v-icon>
                         <v-icon v-else :color="habit.color">fiber_manual_record</v-icon>
                     </v-flex>
-                    <v-flex class="xs10">
+                    <v-flex class="xs8">
                         <h3 class="text-xs-center">{{habit.name}}</h3>
                     </v-flex>
-                    <!-- <v-flex class="xs2">
-                        <v-icon class="clickable" color="red">remove_circle_outline</v-icon>
-                    </v-flex> -->
+                    <v-flex class="xs2 hidden-xs-and-down">
+                        <!-- <v-icon class="clickable" color="red">remove_circle_outline</v-icon> -->
+                    </v-flex>
                 </v-layout>
             </v-container>
         </v-card>
