@@ -17,13 +17,10 @@
 </template>
 <script>
 module.exports = {
-  data() {
-    return {
-      dark : false
-      
-    }
-  },
   computed: {
+    dark() {
+      return this.$store.state.dark;
+    },
     loading() {
       return this.$store.state.loading;
     },
@@ -44,6 +41,9 @@ module.exports = {
 <style>
 .clickable {
   cursor: pointer;
+}
+.clickable:hover {
+  background-color: rgba(0,0,0,0.25);
 }
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

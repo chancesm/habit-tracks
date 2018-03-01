@@ -1,13 +1,13 @@
 <template>
     <div class= "habit-list">
-        <v-card  class= "mb-2 clickable" v-if="habits.length>0" v-for="(habit,index) in habits" :key="habit.name">
-            <v-container>
+        <v-card  class= "mb-2 clickable" v-if="habits.length>0" v-for="(habit,index) in habits" :key="habit.name" >
+            <v-container fill-height  @click="()=>select_habit(index)">
                 <v-layout row justify-space-between>
                     <v-flex class="xs2">
-                        <v-icon v-if="index == selected" :color="habit.color">check_circle</v-icon>
+                        <v-icon large v-if="index == selected" :color="habit.color">check_circle</v-icon>
                         <v-icon v-else :color="habit.color">fiber_manual_record</v-icon>
                     </v-flex>
-                    <v-flex class="xs8">
+                    <v-flex justify-center align-content-center class="xs8">
                         <h3 class="text-xs-center">{{habit.name}}</h3>
                     </v-flex>
                     <v-flex class="xs2 hidden-xs-and-down">
@@ -28,14 +28,23 @@
 
 <script>
 export default {
-name: 'HabitList',
-props: {
-    habits: Array,
-    selected: Number
-}
+    name: 'HabitList',
+    props: {
+        habits: Array,
+        selected: Number
+    },
+    computed: {
+        borderColor() {
+            return this.habits[this.selected].color;
+        }
+    },
+    methods: {
+        select_habit(index) {
+            this.$store.commit('select', index);
+        }
+    }
 }
 </script>
 
-<style>
-
+<style scoped>
 </style>

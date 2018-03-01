@@ -35,7 +35,7 @@ methods: {
     setEventColor(date) {
         if (this.habit.dates[date])
         {
-            return this.habit.dates[date];
+            return this.habit.dates[date]=="red" ? 'red' : 'green accent-4';
         }
         else return null;
     }
