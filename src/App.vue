@@ -9,6 +9,19 @@
         <v-btn id="navTitle" flat to="/dashboard">
           <v-toolbar-title  class="ml-0">My Habits</v-toolbar-title>
 	      </v-btn>
+        <v-menu bottom left offset-y>
+          <v-btn icon slot="activator">
+            <v-icon>person</v-icon>
+          </v-btn>
+          <v-list>
+            <v-list-tile class="clickable" @click.stop="settings('open')">
+              <v-list-tile-title>Settings</v-list-tile-title>
+            </v-list-tile>
+            <v-list-tile class="clickable" @click.stop="logout">
+              <v-list-tile-title>Log Out</v-list-tile-title>
+            </v-list-tile>
+          </v-list>
+        </v-menu>
       </v-toolbar>
       <v-progress-linear class="mt-0 z-14" :indeterminate="loading"></v-progress-linear>
       <router-view />
@@ -34,6 +47,14 @@ module.exports = {
         border : `2px solid ${this.outlineColor}`
       }
     } 
+  },
+  methods: {
+    logout() {
+      console.log('Logging Out');
+    },
+    settings(status) {
+      console.log(`Settings menu is ${status}`);
+    }
   }
 
 }
