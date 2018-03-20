@@ -1,16 +1,13 @@
 'use strict';
-const database = require('../database');
+
 const Router = require('express').Router;
-const userCtl = require('../controllers/usersController.js')
 const router = new Router();
+
+const authenticate = require('../authenticate');
 module.exports = router;
 
-// put your code down here
-router.get('/', (req,res) => {
-    userCtl.getUsers().then(data => {
-
-        res.json(data)
-    })
+router.get('/', authenticate, (req,res) => {
+    res.send('Users GET route')
 })
 router.post('/', (req,res) => {
     res.send('Users POST route')
