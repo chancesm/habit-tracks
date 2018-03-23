@@ -11,6 +11,7 @@
     "body-parser": "^1.18.2",
     "express": "^4.16.2",
     "mongoose": "^5.0.9",
+    "sequelize": "^4.37.4",
     "vue": "^2.5.13",
     "vue-router": "^3.0.1",
     "vuetify": "^1.0.3",
