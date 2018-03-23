@@ -3,10 +3,10 @@
 const Router = require('express').Router;
 const router = new Router();
 
-const authenticate = require('../authenticate');
+const auth = require('../controllers/authenticate');
 module.exports = router;
 
-router.get('/', authenticate, (req,res) => {
+router.get('/', auth.check, (req,res) => {
     res.send('Users GET route')
 })
 router.post('/', (req,res) => {

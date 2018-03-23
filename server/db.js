@@ -1,9 +1,5 @@
-const mongoose = require('mongoose')
-require('dotenv').config()
+var Sequelize = require('sequelize');
+var myDB = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER , process.env.DB_PASSWORD);
 
-// mongoose setup 
-mongoose.Promise = require('bluebird')
-const connString = 'mongodb://127.0.0.1/habitTracks'
-mongoose.connect(connString, (error) => console.log(error))
-
-module.exports = mongoose
+exports.Sequelize = Sequelize;
+exports.myDB = myDB;
