@@ -3,8 +3,9 @@ const port = 8080;
 const bodyParser        = require('body-parser');
 const express           = require('express');
 
-const usersRouter    = require('./routes/users');
-const authRouter    = require('./routes/auth');
+const usersRouter    	= require('./routes/users');
+const habitsRouter		= require('./routes/habits');
+const authRouter    	= require('./routes/auth');
 
 //Set up default mongoose connection
 // Get Mongoose to use the global promise library
@@ -23,6 +24,7 @@ app.use(bodyParser.json())
 // LOGIN AND API ROUTES
 app.use('/auth', authRouter);
 app.use('/api/users', usersRouter);
+app.use('/api/habits', habitsRouter);
 
 app.listen(port, err => {
 	console.log(`Server listening at: http://localhost:${port}`)
