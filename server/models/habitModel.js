@@ -1,15 +1,12 @@
-/*********************************************************
- * This model relates to the 'Users' table in your database
- * *********************************************************/
+const mongoose = require('mongoose')
 
-var	db = require('../db');
-var HabitTracks = db.myDB;
-var Sequelize = db.Sequelize;
-
-var Habits = HabitTracks.define('Habits', {
-    ID: {type: Sequelize.INTEGER, primaryKey: true, autoIncrement: true},
-    UID: Sequelize.INTEGER,
-	HabitInfo: Sequelize.JSON
+var habitSchema = new mongoose.Schema({
+    title: String,
+    description: String,
+    // startDate: String,
+    // endDate: String,
+    owner: String,
+    calendar: Object
 })
 
-module.exports = Habits; //this exports the model from this page to whatever page imports it
+module.exports = habitSchema;

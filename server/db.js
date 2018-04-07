@@ -1,5 +1,11 @@
-var Sequelize = require('sequelize');
-var myDB = new Sequelize(process.env.DB_DATABASE, process.env.DB_USER , process.env.DB_PASSWORD);
+const mongoose      = require('mongoose')
+const UserSchema    = require('./models/userModel')
+const HabitSchema   = require('./models/habitModel')
 
-exports.Sequelize = Sequelize;
-exports.myDB = myDB;
+// mongoose setup 
+const myConn        = 'mongodb://localhost:27017/habitTracks'
+
+exports.connection = mongoose.connect(myConn, (error) => console.log(error))
+
+exports.Habit   = mongoose.model("Habit", HabitSchema)
+exports.User    = mongoose.model('User', UserSchema)
