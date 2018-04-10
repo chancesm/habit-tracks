@@ -9,7 +9,7 @@
         <v-btn id="navTitle" flat to="/dashboard">
           <v-toolbar-title  class="ml-0">My Habits</v-toolbar-title>
 	      </v-btn>
-        <v-menu bottom left offset-y>
+        <v-menu v-if="user" bottom left offset-y>
           <v-btn icon slot="activator">
             <v-icon>person</v-icon>
           </v-btn>
@@ -32,6 +32,9 @@
 const axios = require('axios')
 module.exports = {
   computed: {
+    user() {
+      return this.$store.state.user;
+    },
     dark() {
       return this.$store.state.settings.dark;
     },
@@ -54,7 +57,7 @@ module.exports = {
       console.log('Logging Out');
       axios.get('/auth/logout');
       this.$store.commit('logout')
-      this.$router.push('/')
+      this.$router.push('/login')
     },
     settings(status) {
       console.log(`Settings menu is ${status}`);

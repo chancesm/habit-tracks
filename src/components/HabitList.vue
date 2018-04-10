@@ -1,6 +1,6 @@
 <template>
     <div class= "habit-list">
-        <v-card  class= "mb-2 clickable" v-if="habits.length>0" v-for="(habit,index) in habits" :key="habit.name" >
+        <v-card  class= "mb-2 clickable" v-if="habits.length>0" v-for="(habit,index) in habits" :key="habit._id" >
             <v-container fill-height  @click="()=>select_habit(index)">
                 <v-layout row justify-space-between>
                     <v-flex class="xs2">

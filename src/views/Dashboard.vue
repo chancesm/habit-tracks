@@ -44,8 +44,8 @@ export default {
   beforeMount: function() {
     axios.get('/api/habits')
     .then(({data})=>{
-      console.log(data)
-      console.log("THIS",this)
+      //console.log(data)
+      //console.log("THIS",this)
       this.$store.commit('loadHabits', data);
     })
   }

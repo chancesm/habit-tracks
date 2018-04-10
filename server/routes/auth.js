@@ -56,7 +56,7 @@ router.get('/status', (req,res) => {
         res.json(req.user)
     }
     else res.json({
-        user:{}
+        user:null
     })
 })
 

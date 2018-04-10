@@ -39,6 +39,7 @@ export default new Vuex.Store({
       state.user = null;
       state.habits = [];
       state.dark = false;
+      state.selected_habit = 0;
     }
   },
   actions: {
