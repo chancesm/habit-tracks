@@ -45,7 +45,7 @@ router.post('/register', (req,res) => {
     //let newUser = new User()
 })
 router.post('/login',passport.authenticate('local'), (req,res) => {
-    res.json({'Login Request': req.user})
+    res.json(req.user)
 })
 router.get('/logout', (req,res) => {
     req.logout();

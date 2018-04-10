@@ -29,10 +29,11 @@
   </div>
 </template>
 <script>
+const axios = require('axios')
 module.exports = {
   computed: {
     dark() {
-      return this.$store.state.dark;
+      return this.$store.state.settings.dark;
     },
     loading() {
       return this.$store.state.loading;
@@ -51,6 +52,9 @@ module.exports = {
   methods: {
     logout() {
       console.log('Logging Out');
+      axios.get('/auth/logout');
+      this.$store.commit('logout')
+      this.$router.push('/')
     },
     settings(status) {
       console.log(`Settings menu is ${status}`);

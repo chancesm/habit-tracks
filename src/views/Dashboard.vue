@@ -22,7 +22,7 @@
 import HabitDescription from '@/components/HabitDescription.vue'
 import HabitCalendar from '@/components/HabitCalendar.vue'
 import HabitList from '@/components/HabitList.vue'
-
+const axios = require('axios')
 export default {
   name:'dashboard',
   components: {
@@ -40,7 +40,16 @@ export default {
     habit() {
       return this.habits[this.selected_habit];
     }
-  }  
+  },
+  beforeMount: function() {
+    axios.get('/api/habits')
+    .then(({data})=>{
+      console.log(data)
+      console.log("THIS",this)
+      this.$store.commit('loadHabits', data);
+    })
+  }
+  
 }
 </script>
 

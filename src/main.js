@@ -10,7 +10,7 @@ import 'vuetify/dist/vuetify.min.css'
 Vue.use(Vuetify)
 // Vue.use(VueResource)
 Vue.config.productionTip = false
-
+Vue.config.devtools = true
 new Vue({
   router,
   store,

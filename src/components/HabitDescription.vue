@@ -1,6 +1,6 @@
 <template>
     <div class= "habit-description">
-        <v-card v-if="!habit.name">
+        <v-card v-if="!habit.title">
             <v-card-title class="text-xs-center">
               <h2>You Don't Have Any Habits!</h2>
             </v-card-title>
@@ -11,7 +11,7 @@
         <v-card v-else>
             <v-card-title class="text-xs-center">
                 <v-icon large :color="habit.color">fiber_manual_record</v-icon>
-                &ensp;<h2>{{habit.name}}</h2>
+                &ensp;<h2>{{habit.title}}</h2>
                 &ensp;<v-icon :color="habit.color" class="clickable">more_horiz</v-icon>
 
             </v-card-title>

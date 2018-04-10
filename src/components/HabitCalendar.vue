@@ -19,23 +19,23 @@ props: {
         type: Object,
         default: {
             color: "blue",
-            dates:{}
+            calendar:{}
         }
     }
 },
 methods: {
     setEvent(date) {
         //console.log(date);
-        if (this.habit.dates[date])
+        if (this.habit.calendar[date])
         {
             return true;
         }
         return false;
     },
     setEventColor(date) {
-        if (this.habit.dates[date])
+        if (this.habit.calendar[date])
         {
-            return this.habit.dates[date]=="red" ? 'red' : 'green accent-4';
+            return this.habit.calendar[date]=="red" ? 'red' : 'green accent-4';
         }
         else return null;
     }

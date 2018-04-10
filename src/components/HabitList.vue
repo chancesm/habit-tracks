@@ -8,7 +8,7 @@
                         <v-icon v-else :color="habit.color">fiber_manual_record</v-icon>
                     </v-flex>
                     <v-flex justify-center align-content-center class="xs8">
-                        <h3 class="text-xs-center">{{habit.name}}</h3>
+                        <h3 class="text-xs-center">{{habit.title}}</h3>
                     </v-flex>
                     <v-flex class="xs2 hidden-xs-and-down">
                         <!-- <v-icon class="clickable" color="red">remove_circle_outline</v-icon> -->

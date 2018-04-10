@@ -5,7 +5,13 @@ import Dashboard from './views/Dashboard.vue'
 import Login from "./views/Login"
 import Register from "./views/Register"
 Vue.use(Router)
-
+import store from "./store"
+function authcheck(to,from,next) {
+  if(store.state.user){
+    next();
+  }
+  else next('/login')
+}
 export default new Router({
   routes: [
     {
@@ -16,7 +22,8 @@ export default new Router({
     {
       path: '/dashboard',
       name: 'dashboard',
-      component: Dashboard
+      component: Dashboard,
+      beforeEnter: authcheck
     },
     {
       path:'/login',

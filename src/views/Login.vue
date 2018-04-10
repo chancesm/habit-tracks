@@ -12,8 +12,7 @@
               <v-text-field required v-model='pass' prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
               <v-btn type="submit" color="primary" @click.prevent="loginMethod">Login</v-btn>
             </v-form>
-          </v-card-text>
-          
+          </v-card-text>          
         </v-card>
       </v-flex>
     </v-layout>
@@ -21,6 +20,7 @@
 </template>
 
 <script>
+  const axios = require('axios')
   export default {
     data () {
       return {
@@ -30,7 +30,15 @@
     },
     methods : {
       loginMethod() {
-        console.log(`Logging In: ${this.uname} -- ${this.pass}`)
+        axios.post('/auth/login', {
+          username: this.uname,
+          password: this.pass
+        })
+        .then(({data}) => {
+          this.$store.commit('login', data);
+          this.$store.commit('setTheme');
+          this.$router.push('/dashboard')
+        })
       }
     }
   }
