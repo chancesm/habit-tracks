@@ -38,7 +38,7 @@ export default new Vuex.Store({
     logout(state,payload) {
       state.user = null;
       state.habits = [];
-      state.dark = false;
+      state.settings.dark = false;
       state.selected_habit = 0;
     }
   },

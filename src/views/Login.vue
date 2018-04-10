@@ -36,7 +36,7 @@
         })
         .then(({data}) => {
           this.$store.commit('login', data);
-          this.$store.commit('setTheme');
+          this.$store.commit('setSettings');
           this.$router.push('/dashboard')
         })
       }
