@@ -10,7 +10,8 @@
             <v-form>
               <v-text-field required v-model='uname' prepend-icon="person" name="login" label="Username" type="text"></v-text-field>
               <v-text-field required v-model='pass' prepend-icon="lock" name="password" label="Password" id="password" type="password"></v-text-field>
-              <v-btn type="submit" color="primary" @click.prevent="loginMethod">Login</v-btn>
+              <v-btn type="submit" color="primary" @click.prevent="loginMethod">Login</v-btn><br><br>
+              <router-link to="/register" >REGISTER</router-link>
             </v-form>
           </v-card-text>          
         </v-card>
