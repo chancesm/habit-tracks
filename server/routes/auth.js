@@ -42,7 +42,24 @@ router.use(passport.session());
 module.exports = router;
 
 router.post('/register', (req,res) => {
-    //let newUser = new User()
+    let hash = hashThis(req.body.password);
+    console.log(req.body.password + " -- " + hash);
+    User.create({
+        first: req.body.first,
+        last: req.body.last,
+        username: req.body.username,
+        password: hashThis(req.body.password),
+        email: req.body.email,
+        settings: {
+            dark: false
+        }
+    })
+    .then((data) => {
+        res.json(data)
+    })
+    .catch(err => {
+        res.status(500).json({err})
+    })
 })
 router.post('/login',passport.authenticate('local'), (req,res) => {
     res.json(req.user)

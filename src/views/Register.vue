@@ -24,6 +24,13 @@
 </template>
 
 <script>
+const axios = require('axios')
+// const crypto = require('crypto');
+// function hashThis(string) {
+//     let hash = crypto.createHash('sha256');
+//     hash.update(string)
+//     return hash.digest('hex');
+// }
 export default {
 	data () {
 		return {
@@ -37,9 +44,27 @@ export default {
 	},
 	methods : {
 		signUp() {
-			console.log(`Sign Up: ${this.uname} -- ${this.pass}`)
+			//let hashpass = hashThis(this.pass);
+
+			axios.post('/auth/register', {
+				username: this.uname,
+				password: this.pass,
+				first: this.first,
+				last: this.last,
+				email: this.email,
+				settings: {
+					dark: false
+				}
+				
+			})
+			.then(() => {
+				this.$router.push('/login')
+			})
+			.catch(err => {
+				this.$router.push('/register')
+			})
 		}
-	}
+	}		
 }
 </script>
 

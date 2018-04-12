@@ -8,7 +8,7 @@
             <span class="subheading">A simple way to keep up with your goals and habits. Create good habits, or track your progress kicking bad ones.</span>
             <v-divider class="my-3"></v-divider>
             <div class="title mb-3">Click below to sign up!</div>
-            <v-btn large color="primary" class="mx-0">Get Started</v-btn>
+            <v-btn to="/register" large color="primary" class="mx-0">Get Started</v-btn>
           </v-flex>
         </v-layout>
       </v-container>
