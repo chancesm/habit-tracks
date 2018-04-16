@@ -12,7 +12,7 @@
             <v-card-title class="text-xs-center">
                 <v-icon large :color="habit.color">fiber_manual_record</v-icon>
                 &ensp;<h2>{{habit.title}}</h2>
-                &ensp;<v-icon :color="habit.color" class="clickable">more_horiz</v-icon>
+                &ensp;<v-icon :color="habit.color" @click.stop="deleteHabit" class="clickable">delete_forever</v-icon>
 
             </v-card-title>
             <v-card-text class="pt-0 text-xs-left">
@@ -32,6 +32,13 @@ export default {
                 color: "blue",
                 dates:{}
             }
+        }
+    },
+    methods: {
+        deleteHabit() {
+            this.$store.commit('deleteHabit',{id: this.habit._id})
+            location.reload()
+            //console.log(`DELETE HABIT: `,this.habit)
         }
     }
 }

@@ -188,6 +188,7 @@ module.exports = {
       //console.log(this.clickedDay + '--' + this.dayStatus)
       this.$store.commit('updateDay',{date:this.clickedDay,status:this.dayStatus})
       this.$store.commit('closeDayOpen')
+      location.reload();
     },
     create() {
       let sendData = {

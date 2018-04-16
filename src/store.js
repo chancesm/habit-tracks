@@ -20,9 +20,18 @@ export default new Vuex.Store({
     habits: []
   },
   mutations: {
+    deleteHabit(state,payload) {
+      axios.delete(`/api/habits/${payload.id}`)
+    },
     updateDay(state,payload) {
+      let index = state.selected_habit;
       console.log(payload.date + '--' + payload.status)
       state.habits[state.selected_habit].calendar[payload.date] = payload.status;
+      axios.put(`/api/habits/${state.habits[index]._id}`,state.habits[state.selected_habit])
+      .then(resp => {
+        let update = resp.data
+        state.habits[index] = update;
+      })
     },
     selectDay(state, payload) {
       state.clickedDay = payload;
