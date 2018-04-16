@@ -43,7 +43,7 @@ module.exports = router;
 
 router.post('/register', (req,res) => {
     let hash = hashThis(req.body.password);
-    console.log(req.body.password + " -- " + hash);
+    //console.log(req.body.password + " -- " + hash);
     User.create({
         first: req.body.first,
         last: req.body.last,

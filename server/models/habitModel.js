@@ -5,8 +5,9 @@ var habitSchema = new mongoose.Schema({
     description: String,
     // startDate: String,
     // endDate: String,
+    color: String,
     owner: String,
     calendar: Object
-})
+}, {minimize:false})
 
 module.exports = habitSchema;

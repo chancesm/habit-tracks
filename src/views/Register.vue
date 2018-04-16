@@ -10,11 +10,12 @@
 			<v-form>
 			  <v-text-field required v-model='first' prepend-icon="edit" name="first" label="First Name" type="text"></v-text-field>
 			  <v-text-field required v-model='last' prepend-icon="edit" name="last" label="Last Name" type="text"></v-text-field>
-			  <v-text-field required v-model='email' prepend-icon="email" name="email" label="Email" type="text"></v-text-field>
+			  <v-text-field required v-model='email' prepend-icon="email" name="email" label="Email" type="email"></v-text-field>
 			  <v-text-field required v-model='uname' prepend-icon="person" name="username" label="Username" type="text"></v-text-field>
 			  <v-text-field required v-model='pass' prepend-icon="lock" name="password" label="Password" type="password"></v-text-field>
 			  <v-text-field required v-model='conf' prepend-icon="lock" name="passconf" label="Re-Type Password" type="password"></v-text-field>
-			  <v-btn type="submit" color="primary" @click.prevent="signUp">Sign Up</v-btn>
+			  <v-btn type="submit" color="primary" @click.prevent="signUp">Sign Up</v-btn><br><br>
+				<router-link to="/login" >Log In</router-link>
 			</v-form>
 		  </v-card-text>          
 		</v-card>

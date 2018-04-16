@@ -18,7 +18,7 @@
         </v-card>
         <v-layout row justify-center>
             <v-flex class="xs2">
-                <v-btn fab>
+                <v-btn fab @click.stop="openAddNew">
                     <v-icon>add_circle</v-icon>
                 </v-btn>
             </v-flex>
@@ -39,6 +39,9 @@ export default {
         }
     },
     methods: {
+        openAddNew() {
+            this.$store.commit('toggleAddNew', true);
+        },
         select_habit(index) {
             this.$store.commit('select', index);
         }

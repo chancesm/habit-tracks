@@ -3,9 +3,12 @@
         <v-card>
             <v-date-picker
             full-width
+            v-model="picker"
             :color="habit.color"
             :events="setEvent"
             :event-color="setEventColor"
+            :max="new Date().toISOString().split('T')[0]"
+            @input="selectDay"
             ></v-date-picker>
         </v-card>
     </div>  
@@ -23,7 +26,15 @@ props: {
         }
     }
 },
+data() {
+    return {
+        picker: ""
+    }
+},
 methods: {
+    selectDay(date) {
+        this.$store.commit('selectDay',date);
+    },
     setEvent(date) {
         //console.log(date);
         if (this.habit.calendar[date])

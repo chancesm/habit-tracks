@@ -8,6 +8,9 @@ Vue.use(Vuex)
 const axios = require('axios')
 export default new Vuex.Store({
   state: {
+    addNew:false,
+    dayOpen: false,
+    clickedDay: "",
     selected_habit: 0,
     settings: {
       dark: false,
@@ -17,16 +20,36 @@ export default new Vuex.Store({
     habits: []
   },
   mutations: {
+    selectDay(state, payload) {
+      state.clickedDay = payload;
+      state.dayOpen = true;
+    },
+    closeDayOpen(state, payload) {
+      state.dayOpen = false;
+    },
+    toggleAddNew(state, payload) {
+      state.addNew = payload;
+    },
+    UserDbRefresh(state, payload) {
+      axios.post(`/api/users/${state.user._id}`, state.user)
+      .then(resp => {
+        state.user = resp.data
+      })      
+    },
+    toggleTheme(state, payload) {
+      //console.log(payload)
+      state.user.settings.dark = payload;      
+    },
     select (state, payload) {
       if (payload != state.selected_habit){
         state.selected_habit = payload;
       }
     },
-    setSettings (state, payload) {
-      if(state.user) {
-        state.settings = state.user.settings;
-      }
-    },
+    // setSettings (state, payload) {
+    //   if(state.user) {
+    //     state.settings = state.user.settings;
+    //   }
+    // },
     loadHabits(state, payload) {
       if(state.habits != payload) {
         state.habits = payload;
@@ -40,16 +63,38 @@ export default new Vuex.Store({
       state.habits = [];
       state.settings.dark = false;
       state.selected_habit = 0;
+    },
+    createHabit(state,payload) {
+      // state.loading = true
+      let newHabit = {
+        title: payload.title,
+        description: payload.description,
+        color: payload.color,
+        owner: state.user._id,
+        calendar: {},
+      }
+      axios.post('/api/habits',newHabit)
+      .then(resp => {
+        state.habits.push(resp.data)
+        // state.loading = false
+      })
+      .catch(err => {
+        // state.loading = false;
+      })     
     }
   },
   actions: {
     getHabits(state) {
-      state.loading = true
+      // state.loading = true
       axios.get('/api/habits')
       .then(({data}) => {
         state.habits = data
+        // state.loading = false
       })
-      state.loading = false
+      .catch(err => {
+        // state.loading = false
+      })
+      //state.loading = false
     }
   },
   plugins: [vuexLocal.plugin]

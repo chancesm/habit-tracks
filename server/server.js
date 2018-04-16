@@ -4,7 +4,7 @@ const port = 8080;
 const bodyParser        = require('body-parser');
 const express           = require('express');
 const session             = require('express-session');
-//const usersRouter    	= require('./routes/users');
+const usersRouter    	= require('./routes/users');
 const habitsRouter		= require('./routes/habits');
 const authRouter    	= require('./routes/auth');
 
@@ -25,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // LOGIN AND API ROUTES
 app.use('/auth', authRouter);
-//app.use('/api/users', usersRouter);
+app.use('/api/users', usersRouter);
 app.use('/api/habits', habitsRouter);
 
 app.listen(port, err => {

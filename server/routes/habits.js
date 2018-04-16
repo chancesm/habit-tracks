@@ -27,7 +27,10 @@ router.get('/', authCheck, (req,res) => {
     })
 })
 router.post('/', (req,res) => {
-    res.send('Habits POST route')
+    Habit.create(req.body)
+    .then(data => {
+        res.json(data._doc)
+    })
 })
 router.put('/', (req,res) => {
     res.send('Habits PUT route')
