@@ -20,6 +20,10 @@ export default new Vuex.Store({
     habits: []
   },
   mutations: {
+    updateDay(state,payload) {
+      console.log(payload.date + '--' + payload.status)
+      state.habits[state.selected_habit].calendar[payload.date] = payload.status;
+    },
     selectDay(state, payload) {
       state.clickedDay = payload;
       state.dayOpen = true;

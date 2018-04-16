@@ -32,7 +32,13 @@ router.post('/', (req,res) => {
         res.json(data._doc)
     })
 })
-router.put('/', (req,res) => {
+router.post('/:id', (req,res) => {
+    Habit.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    //.select('-password')
+    .then(data => {
+        //console.log(data)
+        res.json(data)
+    })
     res.send('Habits PUT route')
 })
 router.delete('/', (req,res) => {

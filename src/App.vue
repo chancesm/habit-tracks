@@ -185,7 +185,8 @@ module.exports = {
       this.$store.commit('closeDayOpen')
     },
     addDayStatus() {
-      console.log(this.clickedDay + '--' + this.dayStatus)
+      //console.log(this.clickedDay + '--' + this.dayStatus)
+      this.$store.commit('updateDay',{date:this.clickedDay,status:this.dayStatus})
       this.$store.commit('closeDayOpen')
     },
     create() {
