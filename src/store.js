@@ -22,6 +22,7 @@ export default new Vuex.Store({
   mutations: {
     deleteHabit(state,payload) {
       axios.delete(`/api/habits/${payload.id}`)
+      state.selected_habit = 0
     },
     updateDay(state,payload) {
       let index = state.selected_habit;
